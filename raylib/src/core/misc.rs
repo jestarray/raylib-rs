@@ -122,6 +122,7 @@ pub trait AsF32: Copy {
 macro_rules! as_f32 {
     ($ty:ty) => {
         impl AsF32 for $ty {
+            #[inline(always)]
             fn as_f32(self) -> f32 {
                 self as f32
             }

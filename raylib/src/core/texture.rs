@@ -34,20 +34,23 @@ pub struct NPatchInfo {
 }
 
 impl From<ffi::NPatchInfo> for NPatchInfo {
+    #[inline(always)]
     fn from(v: ffi::NPatchInfo) -> NPatchInfo {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl Into<ffi::NPatchInfo> for NPatchInfo {
+    #[inline(always)]
     fn into(self) -> ffi::NPatchInfo {
         unsafe { std::mem::transmute(self) }
     }
 }
 
 impl Into<ffi::NPatchInfo> for &NPatchInfo {
+    #[inline(always)]
     fn into(self) -> ffi::NPatchInfo {
-        ffi::NPatchInfo {
+         ffi::NPatchInfo {
             source: self.source.into(),
             left: self.left,
             top: self.top,

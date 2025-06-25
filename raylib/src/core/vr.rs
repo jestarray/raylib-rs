@@ -34,12 +34,14 @@ pub struct VrDeviceInfo {
 }
 
 impl From<ffi::VrDeviceInfo> for VrDeviceInfo {
+    #[inline(always)]
     fn from(v: ffi::VrDeviceInfo) -> VrDeviceInfo {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl Into<ffi::VrDeviceInfo> for VrDeviceInfo {
+    #[inline(always)]
     fn into(self) -> ffi::VrDeviceInfo {
         unsafe { std::mem::transmute(self) }
     }

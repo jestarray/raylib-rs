@@ -808,7 +808,7 @@ pub trait RaylibDraw {
     }
 
     /// Draws a color-filled rectangle.
-    #[inline]
+    #[inline(always)]
     fn draw_rectangle(
         &mut self,
         x: i32,
@@ -1101,7 +1101,7 @@ pub trait RaylibDraw {
     }
 
     /// Draws a `texture` with extended parameters.
-    #[inline]
+    #[inline(always)]
     fn draw_texture_ex(
         &mut self,
         texture: impl AsRef<ffi::Texture2D>,
@@ -1122,7 +1122,7 @@ pub trait RaylibDraw {
     }
 
     /// Draws from a region of `texture` defined by the `source_rec` rectangle.
-    #[inline]
+    #[inline(always)]
     fn draw_texture_rec(
         &mut self,
         texture: impl AsRef<ffi::Texture2D>,
@@ -1141,7 +1141,7 @@ pub trait RaylibDraw {
     }
 
     /// Draw from a region of `texture` defined by the `source_rec` rectangle with pro parameters.
-    #[inline]
+    #[inline(always)]
     fn draw_texture_pro(
         &mut self,
         texture: impl AsRef<ffi::Texture2D>,
@@ -1241,7 +1241,7 @@ pub trait RaylibDraw {
         }
     }
     /// Draws text using `font` and additional parameters.
-    #[inline]
+    #[inline(always)]
     fn draw_text_ex(
         &mut self,
         font: impl AsRef<ffi::Font>,
@@ -1265,7 +1265,7 @@ pub trait RaylibDraw {
     }
 
     /// Draw text using Font and pro parameters (rotation)
-    #[inline]
+    #[inline(always)]
     fn draw_text_pro(
         &mut self,
         font: impl AsRef<ffi::Font>,

@@ -403,17 +403,19 @@ impl Quaternion {
 }
 
 impl From<ffi::Quaternion> for Quaternion {
+    #[inline(always)]
     fn from(q: ffi::Quaternion) -> Quaternion {
         unsafe { std::mem::transmute(q) }
     }
 }
 impl From<Quaternion> for ffi::Quaternion {
+    #[inline(always)]
     fn from(value: Quaternion) -> Self {
         unsafe { std::mem::transmute(value) }
     }
 }
 impl From<(f32, f32, f32, f32)> for Quaternion {
-    #[inline]
+    #[inline(always)]
     fn from((x, y, z, w): (f32, f32, f32, f32)) -> Quaternion {
         Quaternion { x, y, z, w }
     }
@@ -473,18 +475,21 @@ optional_serde_struct! {
 }
 
 impl From<ffi::Matrix> for Matrix {
+    #[inline(always)]
     fn from(r: ffi::Matrix) -> Matrix {
         unsafe { std::mem::transmute(r) }
     }
 }
 
 impl From<Matrix> for ffi::Matrix {
+    #[inline(always)]
     fn from(v: Matrix) -> Self {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl From<&Matrix> for ffi::Matrix {
+    #[inline(always)]
     fn from(v: &Matrix) -> Self {
         unsafe { std::mem::transmute(*v) }
     }
@@ -1060,18 +1065,21 @@ optional_serde_struct! {
 }
 
 impl From<ffi::Ray> for Ray {
+    #[inline(always)]
     fn from(r: ffi::Ray) -> Ray {
         unsafe { std::mem::transmute(r) }
     }
 }
 
 impl From<Ray> for ffi::Ray {
+    #[inline(always)]
     fn from(v: Ray) -> ffi::Ray {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl From<&Ray> for ffi::Ray {
+    #[inline(always)]
     fn from(v: &Ray) -> ffi::Ray {
         unsafe { std::mem::transmute(*v) }
     }
@@ -1107,18 +1115,21 @@ impl BoundingBox {
 }
 
 impl From<ffi::BoundingBox> for BoundingBox {
+    #[inline(always)]
     fn from(r: ffi::BoundingBox) -> BoundingBox {
         unsafe { std::mem::transmute(r) }
     }
 }
 
 impl From<BoundingBox> for ffi::BoundingBox {
+    #[inline(always)]
     fn from(v: BoundingBox) -> ffi::BoundingBox {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl From<&BoundingBox> for ffi::BoundingBox {
+    #[inline(always)]
     fn from(v: &BoundingBox) -> ffi::BoundingBox {
         unsafe { std::mem::transmute(*v) }
     }
@@ -1166,18 +1177,21 @@ optional_serde_struct! {
 }
 
 impl From<ffi::RayCollision> for RayCollision {
+    #[inline(always)]
     fn from(r: ffi::RayCollision) -> RayCollision {
         unsafe { std::mem::transmute(r) }
     }
 }
 
 impl From<RayCollision> for ffi::RayCollision {
+    #[inline(always)]
     fn from(v: RayCollision) -> ffi::RayCollision {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl From<&RayCollision> for ffi::RayCollision {
+    #[inline(always)]
     fn from(v: &RayCollision) -> ffi::RayCollision {
         unsafe { std::mem::transmute(*v) }
     }
@@ -1196,18 +1210,21 @@ optional_serde_struct! {
 }
 
 impl From<ffi::Transform> for Transform {
+    #[inline(always)]
     fn from(r: ffi::Transform) -> Transform {
         unsafe { std::mem::transmute(r) }
     }
 }
 
 impl From<Transform> for ffi::Transform {
+    #[inline(always)]
     fn from(v: Transform) -> ffi::Transform {
         unsafe { std::mem::transmute(v) }
     }
 }
 
 impl From<&Transform> for ffi::Transform {
+    #[inline(always)]
     fn from(v: &Transform) -> ffi::Transform {
         unsafe { std::mem::transmute(*v) }
     }
